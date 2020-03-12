@@ -1,23 +1,14 @@
 package io.github.makbn.twitterwordcloud;
 
-import com.kennycason.kumo.CollisionMode;
-import com.kennycason.kumo.WordCloud;
-import com.kennycason.kumo.WordFrequency;
-import com.kennycason.kumo.bg.CircleBackground;
-import com.kennycason.kumo.font.scale.SqrtFontScalar;
-import com.kennycason.kumo.nlp.FrequencyAnalyzer;
-import com.kennycason.kumo.palette.LinearGradientColorPalette;
-import com.opencsv.CSVReader;
 import io.github.makbn.twitterwordcloud.utils.TWordCloud;
 import io.github.makbn.twitterwordcloud.utils.WordProcessor;
 import ir.ac.um.ce.projectnews.crawler.Crawler;
 
 import java.awt.*;
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.*;
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class TWC {
     private static HashMap<String, String> argsMap = new HashMap();
@@ -58,7 +49,7 @@ public class TWC {
             }
         }
 
-        if(!argsMap.containsKey("-i")){
+        if (!argsMap.containsKey("-i")) {
             Scanner s = new Scanner(System.in);
             String id = "";
             while (id.trim().isEmpty()) {
@@ -72,7 +63,7 @@ public class TWC {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
 
 
-        if(!argsMap.containsKey("-s")){
+        if (!argsMap.containsKey("-s")) {
             Calendar prevYear = Calendar.getInstance();
             prevYear.add(Calendar.YEAR, -1);
             argsMap.put("-s", simpleDateFormat.format(prevYear.getTime()));
@@ -80,26 +71,25 @@ public class TWC {
             argsMap.put("-e", simpleDateFormat.format(Calendar.getInstance().getTime()));
         }
 
-        if(!argsMap.containsKey("-p")) {
+        if (!argsMap.containsKey("-p")) {
             File dir = new File("result/");
-            if(!dir.exists()){
+            if (!dir.exists()) {
                 dir.mkdir();
-            }else {
-                /*if(dir.listFiles() != null)
+            } else {
+                if(dir.listFiles() != null)
                     Arrays.stream(dir.listFiles())
-                            .forEach(file -> file.delete());*/
+                            .forEach(file -> file.delete());
             }
             argsMap.put("-p", "./result/");
         }
 
 
-
         String[] vArgs = new String[argsMap.size() * 2];
         int index = 0;
-        for (Map.Entry<String, String> arg: argsMap.entrySet()){
+        for (Map.Entry<String, String> arg : argsMap.entrySet()) {
             vArgs[index] = arg.getKey();
-            vArgs[index+1] = arg.getValue();
-            index+=2;
+            vArgs[index + 1] = arg.getValue();
+            index += 2;
         }
 
         return vArgs;

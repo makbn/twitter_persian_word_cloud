@@ -23,16 +23,16 @@ public class WordProcessor {
 
         Iterator<String[]> it = scvr.iterator();
         //ignore first line
-        if(it.hasNext())
+        if (it.hasNext())
             it.next();
 
-        while (it.hasNext()){
+        while (it.hasNext()) {
             String[] tweet = it.next();
             String result = tweet[2];
 
             System.out.println(tweet[2]);
-            if(!result.startsWith("https://twitter.com"))
-                fw.write(result+"\n");
+            if (!result.startsWith("https://twitter.com"))
+                fw.write(result + "\n");
         }
 
         fw.flush();
@@ -48,8 +48,8 @@ public class WordProcessor {
         String swDir = TWC.class.getClassLoader().getResource("stopwords").getFile();
         File dir = new File(swDir);
         BufferedReader reader;
-        for (File swf : dir.listFiles()){
-            reader  = new BufferedReader(new FileReader(swf));
+        for (File swf : dir.listFiles()) {
+            reader = new BufferedReader(new FileReader(swf));
             stopwords.addAll(reader.lines()
                     .map(s -> s.trim()) // substitute with your deilimeter
                     .collect(Collectors.toList()));

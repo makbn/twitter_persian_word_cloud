@@ -32,7 +32,7 @@ public class TWordCloud {
         wordCloud.setColorPalette(new LinearGradientColorPalette(Color.decode("#4978BC"), Color.decode("#002E5E"), Color.decode("#001D38"), 25, 25));
         wordCloud.setBackgroundColor(Color.decode("#FFCC00"));
         wordCloud.setKumoFont(loadFont());
-        wordCloud.setFontScalar( new SqrtFontScalar(10, 55));
+        wordCloud.setFontScalar(new SqrtFontScalar(10, 55));
         wordCloud.build(wordFrequencies);
 
         wordCloud.writeToFile("result/done.png");
