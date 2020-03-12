@@ -1,8 +1,8 @@
 # Twitter Persian word cloud
 
-Build word cloud for your tweets easily!
+Build a word cloud for your tweets easily!
 
-* It's not a neat and clean code! I'll make it better in my free time! This project is based on my other project: [Twitter Persian news tagcloud extraction](https://github.com/makbn/twitter_persian_news_tagcloud)
+* It's not a neat and clean code! I'll make it better in my free time! This project is based on my other project: [Twitter Persian news Tagcloud extraction](https://github.com/makbn/twitter_persian_news_tagcloud)
 
 ### How to use
 ```bash
